@@ -11,8 +11,13 @@
 	<groupId>com.luckk.lizzie</groupId>
 	<artifactId>framework-learning</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
 	<name>framework-learning</name>
 	<description>framework-learning</description>
+	<modules>
+		<module>algorithm</module>
+		<module>elasticsearch</module>
+	</modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
