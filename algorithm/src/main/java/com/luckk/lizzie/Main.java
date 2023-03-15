@@ -1,8 +1,10 @@
 package com.luckk.lizzie;
 
-public class Main {
+import java.util.*;
 
-    public static void main(String[] args) {
-        String ans = "1";
+public class Main {
+    public static void main(String[] args){
+
+
     }
 }
