@@ -3,6 +3,7 @@ package com.luckk.lizzie.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.luckk.lizzie.dto.BuyerCartRequestDTO;
 import com.luckk.lizzie.service.BuyerCartRedisService;
+import com.luckk.lizzie.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,6 +20,15 @@ public class BuyerCartController {
 
     @Autowired
     BuyerCartRedisService buyerCartRedisService;
+
+    @Autowired
+    TestService testService;
+
+    @GetMapping("/hello")
+    public String sayHello(){
+        testService.sayHello();
+        return "hello lkk";
+    }
 
     @GetMapping("/get/{userId}")
     public String getCart(@PathVariable("userId") String userId){

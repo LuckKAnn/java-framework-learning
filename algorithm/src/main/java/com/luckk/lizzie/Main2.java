@@ -1,5 +1,7 @@
 package com.luckk.lizzie;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,42 +13,28 @@ import java.util.Scanner;
  */
 public class Main2 {
 
-    static int size = 101;
     public static void main(String[] args) {
-        // 背包问题
-        Scanner input = new Scanner(System.in);
-        int n = input.nextInt();
-        int v = input.nextInt();
-        int [][]price = new int[size][size];
-        int [][]value = new int[size][size];
 
-        int []numArr = new int[size];
-        for (int i = 0; i < n ; i++) {
-            int num = input.nextInt();
-            numArr[i] = num;
-            for (int j = 0; j < num ; j++) {
-                price[i][j] = input.nextInt();
-            }
-            for (int j = 0; j < num; j++) {
-                value[i][j] = input.nextInt();
-            }
+        find_factor(110,10000);
+    }
+
+    static List<Integer> list1 = new ArrayList<>();
+
+    public static void find_factor(int sum,int n){
+        //递归出口
+        if (n <= 0 || sum <= 0)
+            return;
+        //输出找到的数
+        if (sum == n)
+        {
+          for (Integer l : list1){
+              System.out.print(l+" ");
+          }
+            System.out.println();
         }
-        int[] dp = new int[size];
-        for (int i = 0; i < n; i++) {
-            for (int j = v; j >=0; j--) {
-                for (int k = 0; k < numArr[i]; k++) {
-
-                    if (j>=price[i][k]) {
-                        System.out.println(dp[j]);
-                        System.out.println(dp[j-price[i][k]]);
-                        System.out.println(value[i][k]);
-                        dp[j] = Math.max(dp[j],dp[j-price[i][k]]+value[i][k]);
-                    }
-
-                }
-            }
-        }
-
-        System.out.println(dp[v]);
+        list1.add(n);
+        find_factor(sum - n, n - 1);//n放在里面
+        list1.remove(list1.size()-1);
+        find_factor(sum, n - 1);//n不放在里面
     }
 }

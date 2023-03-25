@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
@@ -319,5 +320,23 @@ public class RedisUtils {
         ZSetOperations<String, Object> zset = redisTemplate.opsForZSet();
         Set<ZSetOperations.TypedTuple<Object>> ret = zset.reverseRangeWithScores(key, start, end);
         return ret;
+    }
+
+
+    public Long addHyperLog(String key,String ... values){
+        HyperLogLogOperations<String,String> hyperLogLog = redisTemplate.opsForHyperLogLog();
+        for (String val : values){
+            System.out.println("val:"+val);
+            Long add = hyperLogLog.add(key, val);
+            System.out.println(add);
+        }
+        // Long add =
+        // return add;
+        return 1L;
+    }
+
+    public long getHyperLogSize(String key) {
+        HyperLogLogOperations<String,String> hyperLogLogOperations = redisTemplate.opsForHyperLogLog();
+        return hyperLogLogOperations.size(key);
     }
 }
