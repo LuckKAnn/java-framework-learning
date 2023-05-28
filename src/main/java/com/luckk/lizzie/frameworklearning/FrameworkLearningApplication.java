@@ -9,6 +9,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
 
+import java.util.Random;
+
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableAsync
 public class FrameworkLearningApplication {
@@ -20,6 +22,10 @@ public class FrameworkLearningApplication {
 		System.out.println(bean);
 		bean.methodB();
 		bean.methodA();
+
+		String s = "";
+		String[] split = s.split("");
+
 
 
 	}

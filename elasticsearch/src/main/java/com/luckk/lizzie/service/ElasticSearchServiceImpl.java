@@ -1,7 +1,10 @@
 package com.luckk.lizzie.service;
 
+import com.luckk.lizzie.domain.UserDO;
 import com.luckk.lizzie.service.ElasticSearchService;
+import com.luckk.lizzie.util.EsUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.core.MainResponse;
@@ -22,10 +25,12 @@ public class ElasticSearchServiceImpl implements ElasticSearchService {
 
     private final RestHighLevelClient restHighLevelClient;
 
-    public ElasticSearchServiceImpl(RestHighLevelClient restHighLevelClient) {
-        this.restHighLevelClient = restHighLevelClient;
-    }
+    private final EsUtils esUtils;
 
+    public ElasticSearchServiceImpl(RestHighLevelClient restHighLevelClient, EsUtils esUtils) {
+        this.restHighLevelClient = restHighLevelClient;
+        this.esUtils = esUtils;
+    }
 
     @Override
     public String getIndex() {
@@ -35,5 +40,18 @@ public class ElasticSearchServiceImpl implements ElasticSearchService {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void addDocument() {
+
+        UserDO userDO = new UserDO();
+        userDO.setName("luck");
+        userDO.setTel("133333333");
+        userDO.setSex("man");
+        IndexResponse response = esUtils.insertNewDocument("index", userDO);
+
+
+
     }
 }

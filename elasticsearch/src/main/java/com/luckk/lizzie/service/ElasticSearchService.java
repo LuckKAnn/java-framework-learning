@@ -14,4 +14,7 @@ public interface ElasticSearchService {
     String getIndex();
 
 
+    void addDocument();
+
+
 }

@@ -24,6 +24,9 @@
 		<module>design</module>
         <module>commons</module>
         <module>netty</module>
+		<module>design/fileDownload</module>
+		<module>design/localCache</module>
+        <module>design/pattern</module>
     </modules>
 	<properties>
 		<java.version>17</java.version>
@@ -48,6 +51,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
