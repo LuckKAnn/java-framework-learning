@@ -23,8 +23,6 @@ public class FrameworkLearningApplication {
 	public static void main(String[] args) throws InterruptedException, UnknownHostException {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(FrameworkLearningApplication.class, args);
 		UserService bean = applicationContext.getBean(UserService.class);
-
-		System.out.println(bean.getOrderService());
 	}
 
 }
