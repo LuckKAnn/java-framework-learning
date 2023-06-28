@@ -1,5 +1,6 @@
 package com.luckk.lizzie.frameworklearning.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.SmartLifecycle;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
@@ -12,10 +13,13 @@ import org.springframework.transaction.annotation.Transactional;
  * @ClassName: AopService
  * @Version 1.0
  */
-@Service
+// @Service
 public class AopService {
 
-    @Async
+
+    @Autowired
+    OrderService orderService;
+    // @Async
     public void methodA(){
         System.out.println("11111");
     }

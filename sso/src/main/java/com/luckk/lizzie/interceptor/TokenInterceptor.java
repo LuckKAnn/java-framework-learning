@@ -12,6 +12,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.nio.charset.StandardCharsets;
 import java.util.Map;
 
 /**
@@ -41,19 +42,23 @@ public class TokenInterceptor implements HandlerInterceptor {
         String tokenFromCookie = getTokenFromCookie(request);
         if (tokenFromCookie == null){
             // 要求登陆吧
+            response.setCharacterEncoding("UTF-8");
+            response.setContentType("application/json; charset=utf-8");
+            response.getOutputStream().write("no token".getBytes(StandardCharsets.UTF_8));
             return  false;
         }
-
-
         Map<String, String> userInfoMap = TokenUtil.parseToken(tokenFromCookie);
 
+        System.out.println(tokenFromCookie);
 
-
-        return false;
+        return true;
     }
 
     private String getTokenFromCookie(HttpServletRequest request){
         Cookie[] cookies = request.getCookies();
+        if (cookies == null || cookies.length == 0){
+            return null;
+        }
         String token = null;
         for (Cookie cookie : cookies){
             if (TOKEN_COOKIE_NAME.equals(cookie.getName())){
