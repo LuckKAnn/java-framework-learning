@@ -3,6 +3,7 @@ package com.luckk.lizzie.frameworklearning.service;
 import com.sun.org.apache.xpath.internal.operations.Or;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,14 +17,25 @@ import org.springframework.stereotype.Service;
 // @DependsOn("orderService")
 public class UserService {
 
-
-    @Autowired
-    private OrderService orderService;
-    // public UserService(OrderService orderService) {
-    //     this.orderService = orderService;
+    // @Autowired
+    // AopService aopService;
+    //
+    // public AopService getAopService() {
+    //     return aopService;
     // }
 
-    public OrderService getOrderService(){
-        return orderService;
-    }
+    // @Autowired
+    // @Lazy
+    // private OrderService orderSonService;
+    // // public UserService(OrderService orderService) {
+    // //     this.orderService = orderService;
+    // // }
+    //
+    // public OrderService getOrderService(){
+    //     System.out.println(orderSonService);
+    //     orderSonService.sayHello();
+    //     System.out.println(orderSonService);
+    //     return orderSonService;
+    //
+    // }
 }

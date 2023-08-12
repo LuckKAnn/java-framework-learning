@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @ClassName: AopServiceFactoryBean
  * @Version 1.0
  */
-@Component
+// @Component
 public class AopServiceFactoryBean implements FactoryBean<AopService> {
     @Override
     public AopService getObject() throws Exception {

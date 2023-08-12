@@ -1,8 +1,12 @@
 package com.luckk.lizzie.frameworklearning.service;
 
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.SmartLifecycle;
+import org.springframework.context.annotation.Scope;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,17 +18,23 @@ import org.springframework.transaction.annotation.Transactional;
  * @Version 1.0
  */
 // @Service
+
+@Component
 public class AopService {
 
 
-    @Autowired
-    OrderService orderService;
-    // @Async
-    public void methodA(){
+    // @Autowired
+    // OrderService orderService;
+    // // @Async
+
+
+    public void methodA() {
         System.out.println("11111");
     }
 
-    public void methodB(){
+    public void methodB() {
         System.out.println("bbbb");
     }
+
+
 }
