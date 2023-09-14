@@ -1,9 +1,8 @@
 package com.luckk.lizzie.q2;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 /**
  * @Author liukun.inspire
@@ -13,7 +12,6 @@ import java.util.Scanner;
  * @Version 1.0
  */
 public class Main {
-
     public static void main(String[] args) {
 
     }

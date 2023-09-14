@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -24,6 +25,8 @@ public class FrameworkLearningApplication {
 	public static void main(String[] args) throws InterruptedException, UnknownHostException {
 		ConfigurableApplicationContext applicationContext = SpringApplication.run(FrameworkLearningApplication.class, args);
 		OrderSonService bean1 = applicationContext.getBean(OrderSonService.class);
+
+
 	}
 
 }

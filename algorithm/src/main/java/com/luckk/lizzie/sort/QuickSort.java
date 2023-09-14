@@ -1,4 +1,5 @@
 package com.luckk.lizzie.sort;
+
 import java.util.Arrays;
 
 /**
@@ -21,19 +22,20 @@ public class QuickSort {
         if (start >= end) {
             return;
         }
-        int pivot = arr[(end + start) / 2];
+        int pivot = arr[start];
         int left = start;
         int right = end;
 
-        while (left <= right) {
+        while (left < right) {
             // = pivot 的时候，两边都可以存留。进而导致可能来回交换，所以需要在交换之后++ --
-            while (left <= right && arr[left] < pivot) {
-                left++;
-            }
-            while (left <= right && arr[right] > pivot) {
+
+            while (left < right && arr[right] >= pivot) {
                 right--;
             }
-            if (left <= right) {
+            while (left < right && arr[left] <= pivot) {
+                left++;
+            }
+            if (left < right) {
                 int tmp = arr[left];
                 arr[left] = arr[right];
                 arr[right] = tmp;
@@ -41,8 +43,10 @@ public class QuickSort {
                 // right--;
             }
         }
-        quickSortHelper(arr, start, right);
-        quickSortHelper(arr, left, end);
+        arr[start] = arr[left];
+        arr[left] = pivot;
+        quickSortHelper(arr, start, right - 1);
+        quickSortHelper(arr, left + 1, end);
 
     }
 
