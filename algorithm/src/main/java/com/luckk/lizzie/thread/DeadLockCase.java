@@ -21,6 +21,7 @@ public class DeadLockCase {
     static Semaphore t2Semphore = new Semaphore(0);
 
     public static void main(String[] args) throws InterruptedException {
+
         Thread thread1 = new Thread(() -> {
             try {
                 t1Semphore.acquire();

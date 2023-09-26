@@ -1,9 +1,11 @@
 package com.luckk.lizzie;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * @Author liukun.inspire
@@ -15,7 +17,8 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class SsoApplication {
-
+    @Autowired
+    RedisTemplate<String,String> redisTemplate;
     public static void main(String[] args) {
         SpringApplication.run(SsoApplication.class);
 

@@ -26,7 +26,7 @@ public class AbTaskV2 {
     }
 
 
-    private static class ThreadPrintChar {
+    public static class ThreadPrintChar {
 
         private int num;
 

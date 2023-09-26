@@ -5,34 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.luckk.lizzie</groupId>
-        <artifactId>framework-learning</artifactId>
+        <artifactId>design</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>design</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>buyerCart</module>
-        <module>luck-threadPool</module>
-    </modules>
+    <artifactId>luck-threadPool</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
-
-    </dependencies>
-
 
 </project>

@@ -1,6 +1,8 @@
 package com.luckk.lizzie.q3;
 
 
+import com.luckk.lizzie.TreeNode;
+
 import java.util.*;
 
 /**
@@ -16,6 +18,5 @@ public class Main {
     public static void main(String[] args) {
 
     }
-
 
 }
