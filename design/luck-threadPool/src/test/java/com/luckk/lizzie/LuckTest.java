@@ -14,11 +14,6 @@ public class LuckTest {
 
     public static void main(String[] args) {
 
-
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor();
-        threadPoolExecutor.execute(()->{});
-
-
     }
 
 }
